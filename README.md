@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Talkie
+
+A **Walkie-Talkie** over **WebRTC** — peer-to-peer push-to-talk audio communication in the browser.
+
+Built with [Next.js](https://nextjs.org) (App Router), [PeerJS](https://peerjs.com), [shadcn/ui](https://ui.shadcn.com), and deployed on Cloudflare via [OpenNext](https://opennext.js.org).
+
+## Features
+
+- **Peer-to-peer audio** — direct WebRTC connections between browsers
+- **Push-to-Talk (PTT)** — hold to speak, release to mute
+- **Incoming/outgoing audio visualizers** — real-time waveform feedback
+- **WebRTC stats panel** — connection state, RTT, jitter, packets, codec info
+- **Username dialog** — set your display name
+- **Dark/light theme** — toggle via next-themes
+- **Mobile-friendly** — touch events for PTT button
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:8000](http://localhost:8000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Peer Server (optional)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For local development, you can run a PeerJS signalling server:
 
-## Learn More
+```bash
+npm run peerserver
+```
 
-To learn more about Next.js, take a look at the following resources:
+By default, the app uses the public PeerJS Cloud server. Configure your own by editing the `peer` constructor in `app/page.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Script          | Description                          |
+| --------------- | ------------------------------------ |
+| `npm run dev`   | Start Next.js dev server on port 8000|
+| `npm run build` | Build for production                 |
+| `npm run start` | Start production server              |
+| `npm run lint`  | Run ESLint                           |
+| `npm run peerserver` | Start PeerJS server on port 9000 |
+| `npm run deploy`| Build and deploy to Cloudflare       |
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **UI Library:** shadcn/ui (Radix primitives)
+- **State:** Jotai
+- **WebRTC:** PeerJS
+- **Theming:** next-themes
+- **Deployment:** Cloudflare (via OpenNext)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+```bash
+npm run deploy
+```
+
+This builds the Next.js app with OpenNext and deploys it to Cloudflare.
