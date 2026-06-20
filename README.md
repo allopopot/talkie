@@ -45,6 +45,13 @@ By default, the app uses the public PeerJS Cloud server. Configure your own by e
 | `npm run peerserver` | Start PeerJS server on port 9000 |
 | `npm run deploy`| Build and deploy to Cloudflare       |
 
+## Environment Variables
+
+| Script          | Description                          |
+| --------------- | ------------------------------------ |
+| `NEXT_PUBLIC_PEER_SERVER_HOST`   | Set Peer Server Hostname|
+
+
 ## Tech Stack
 
 - **Framework:** Next.js 16 (App Router)
