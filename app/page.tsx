@@ -16,10 +16,9 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Main() {
     const peer = useRef(new Peer({
-        // host: "localhost",
-        // port: 9000,
-        // path: "/",
-        // secure: false, // Use true with HTTPS      
+        host: process.env?.NEXT_PUBLIC_PEER_SERVER_HOST || "0.peerjs.com",
+        path: "/",
+        secure: true,
     }))
     const conn = useRef<DataConnection>(undefined)
     const [peerId, setPeerId] = useState("Loading")
