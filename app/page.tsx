@@ -13,6 +13,7 @@ import MicrophonePermissionDialog from "@/components/MicrophonePermissionDialog"
 import { Button } from "@/components/ui/button";
 import { PhoneIncoming, PhoneOutgoing, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import InstallApp from "@/components/InstallApp";
 
 export default function Main() {
     const peer = useRef(new Peer({
@@ -241,7 +242,8 @@ export default function Main() {
                                 <p className="text-xs text-muted-foreground mt-0.5 font-mono">{remotePeerId}</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                            <InstallApp />
                             <ThemeToggle />
                             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                                 <span className={["size-1.5 rounded-full animate-pulse", (stats?.iceState === "connected" ? "bg-emerald-500" : "bg-red-500")].join(" ")} />
