@@ -12,6 +12,7 @@ import { useEffect, useState } from "react"
 import { useAtomValue, useSetAtom } from "jotai"
 import { usernameAtom } from "@/stores"
 import ThemeToggle from "@/components/ThemeToggle"
+import InstallApp from "@/components/InstallApp"
 import { useRouter, useSearchParams } from "next/navigation";
 import Logo from "@/app/Logo.svg"
 
@@ -46,7 +47,8 @@ export default function Connection({ peerId, onConnectClickHandler }: { peerId: 
 
     return (
         <div className="w-full h-dvh flex flex-col p-4 relative overflow-hidden">
-            <div className="absolute top-4 right-4">
+            <div className="absolute top-4 right-4 flex items-center gap-1">
+                <InstallApp />
                 <ThemeToggle />
             </div>
             <div className="flex flex-col items-center mb-4 shrink-0">
